@@ -35,7 +35,7 @@ import org.w3c.dom.css.Rect;
 import java.io.*;
 import sun.audio.*;
 
-public class GetTheTreasure extends BasicGameState {
+public class GetTheTreasure2 extends BasicGameState {
 
     public Player player;
     public Item healthpotion;
@@ -58,7 +58,7 @@ public class GetTheTreasure extends BasicGameState {
     private static final int SCREEN_HEIGHT = 750;
     public int points;
 
-    public GetTheTreasure(int xSize, int ySize) {
+    public GetTheTreasure2(int xSize, int ySize) {
     }
 
     public void init(GameContainer gc, StateBasedGame sbg)
@@ -93,7 +93,7 @@ public class GetTheTreasure extends BasicGameState {
             }
 
         }
-
+player.y+=200;
         healthpotion = new Item(2500, 2100);
         a = new Enemy(1000, 50);
         b = new Enemy(0, 1500);
@@ -393,7 +393,7 @@ public class GetTheTreasure extends BasicGameState {
                     w.isvisible = false;
 
                     makevisible();
-                    sbg.enterState(1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
+                    sbg.enterState(3, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
 
                 }
 
