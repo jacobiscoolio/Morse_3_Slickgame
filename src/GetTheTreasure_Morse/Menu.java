@@ -10,6 +10,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 
 import org.newdawn.slick.Input;
+import org.newdawn.slick.Music;
 
 import org.newdawn.slick.SlickException;
 
@@ -26,6 +27,7 @@ public class Menu extends BasicGameState {
     private StateBasedGame game;
 
     public Image startimage;
+    public Music startmusic; 
 
     public Menu(int xSize, int ySize) {
 
@@ -37,6 +39,12 @@ public class Menu extends BasicGameState {
         startimage = new Image("res/Title.png");
 
         this.game = game;
+         startmusic = new Music("res/old.wav");
+        
+        startmusic.loop();
+        if(getID() ==2){
+            startmusic.stop();
+        }
 
     }
 
@@ -44,8 +52,9 @@ public class Menu extends BasicGameState {
             throws SlickException {
 
         g.setColor(Color.white);
-
-        startimage.draw();
+startimage.draw();
+       
+        
 
     }
 

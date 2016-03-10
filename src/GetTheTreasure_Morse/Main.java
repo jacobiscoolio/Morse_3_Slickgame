@@ -22,7 +22,7 @@ public class Main extends StateBasedGame {
 
         this.addState(new GetTheTreasure(xSize, ySize));
         
-        this.addState(new GetTheTreasure2(xSize, ySize));
+
 
         this.addState(new Lose(xSize, ySize));
 
