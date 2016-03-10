@@ -33,6 +33,8 @@ import org.newdawn.slick.state.transition.FadeOutTransition;
 import org.newdawn.slick.tiled.TiledMap;
 import org.w3c.dom.css.Rect;
 import java.io.*;
+import org.newdawn.slick.Music;
+import org.newdawn.slick.Sound;
 import sun.audio.*;
 
 public class GetTheTreasure extends BasicGameState {
@@ -57,7 +59,10 @@ public class GetTheTreasure extends BasicGameState {
     private static final int SCREEN_WIDTH = 1000;
     private static final int SCREEN_HEIGHT = 750;
     public int points;
+    public Sound sound;
+    public Sound sound1;
 
+        
     public GetTheTreasure(int xSize, int ySize) {
     }
 
@@ -68,7 +73,7 @@ public class GetTheTreasure extends BasicGameState {
 
         gc.setShowFPS(false);
 
-        grassMap = new TiledMap("res/d4.tmx");
+        grassMap = new TiledMap("res/d5.tmx");
 
         camera = new Camera(gc, grassMap);
         player = new Player();
@@ -187,7 +192,7 @@ public class GetTheTreasure extends BasicGameState {
         //   g.draw(e.rect);
 
         for (Trap t : trap) {
-            g.draw(t.hitbox);
+           
             if (t.isvisible) {
                 t.currentImage.draw(t.x, t.y);        // d.currentanime.draw(d.Bx, d.By);
                 
@@ -213,6 +218,7 @@ public class GetTheTreasure extends BasicGameState {
         boolean cangoright = projectedright < rightlimit;
 
         if (orb1.isIsVisisble()) {
+               
             if (orb1.gettimeExists() > 0) {
                 if (player.getDirection() == 0) {
                     orb1.setX((int) player.x);
@@ -289,7 +295,10 @@ public class GetTheTreasure extends BasicGameState {
                 player.x -= fdelta;
 
             }
-        } else if (input.isKeyDown(Input.KEY_SPACE)) {
+        } else if (input.isKeyPressed(Input.KEY_SPACE)) {
+           sound = new Sound("res/shot.ogg");
+        
+        sound.play();
             orb1.setX((int) player.x);
             orb1.settimeExists(42);
             orb1.setY((int) player.y);
@@ -349,12 +358,19 @@ public class GetTheTreasure extends BasicGameState {
         }
 
         for (Coins l : coin) {
-
+sound1 = new Sound("res/coins.wav");
+        
+        
             if (player.rect.intersects(l.hitbox)) {
 
+       
+       
+        
+        
                 if (l.isvisible) {
                     l.isvisible = false;
                     points++;
+                    sound1.play();
                         // open the sound file as a Java input stream
     
 
