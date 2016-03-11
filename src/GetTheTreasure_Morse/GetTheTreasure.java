@@ -58,7 +58,7 @@ public class GetTheTreasure extends BasicGameState {
     private static final int SIZE = 64;
     private static final int SCREEN_WIDTH = 1000;
     private static final int SCREEN_HEIGHT = 750;
-    public int points;
+    public static int points;
     public Sound sound;
     public Sound sound1;
 
@@ -145,7 +145,7 @@ public class GetTheTreasure extends BasicGameState {
         camera.translateGraphics();
 
         player.sprite.draw((int) player.x, (int) player.y);
-        g.drawString("x: " + (int) player.x + "Y :" + (int) player.y, player.x, player.y);
+        //g.drawString("x: " + (int) player.x + "Y :" + (int) player.y, player.x, player.y);
         g.drawString("Health: " + player.health / 1000, camera.cameraX + 10,
                 camera.cameraY + 10);
         g.drawString("Points: " + points, camera.cameraX + 40, camera.cameraY + 40);
@@ -409,7 +409,7 @@ sound1 = new Sound("res/coins.wav");
                     w.isvisible = false;
 
                     makevisible();
-                    sbg.enterState(1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
+                    sbg.enterState(3, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
 
                 }
 

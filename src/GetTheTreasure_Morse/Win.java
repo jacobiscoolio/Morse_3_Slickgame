@@ -72,8 +72,9 @@ public class Win extends BasicGameState {
                 GetTheTreasure.counter = 0;
                 Player.x = 96f;
                 Player.y = 228f;
-
+                GetTheTreasure.points = 0;
                 ItemWin.isvisible = true;
+                
                 game.enterState(1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
 
                 break;
